@@ -1,0 +1,14 @@
+Pour compléter le site, placez les images suivantes dans ce dossier :
+
+1. hero-bg.jpg - Image d'arrière-plan pour la section d'accueil
+2. server-preview.jpg - Aperçu du serveur FiveM
+3. team-1.jpg, team-2.jpg, team-3.jpg, team-4.jpg - Photos des membres de l'équipe
+4. gallery-1.jpg, gallery-2.jpg, gallery-3.jpg, gallery-4.jpg, gallery-5.jpg, gallery-6.jpg - Images de la galerie
+
+Vous pouvez utiliser des captures d'écran de GTA V ou des images de votre serveur FiveM.
+Pour obtenir ces images, vous pouvez :
+- Utiliser des captures d'écran de votre propre serveur FiveM
+- Utiliser des images libres de droits liées à GTA V
+- Créer des images personnalisées adaptées à votre serveur
+
+Assurez-vous que toutes les images sont optimisées pour le web (taille raisonnable, format .jpg ou .webp). 
