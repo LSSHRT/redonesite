@@ -220,6 +220,22 @@ document.addEventListener('DOMContentLoaded', function() {
         member.style.transition = 'opacity 0.5s ease, transform 0.7s ease';
         teamObserver.observe(member);
     });
+
+    // Animation d'apparition des sections au scroll (hors hero)
+    const sections = document.querySelectorAll('section:not(.hero)');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-section');
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    sections.forEach(section => {
+        section.classList.add('before-fade-in-section');
+        sectionObserver.observe(section);
+    });
     
     // Animation du formulaire de contact
     const contactForm = document.querySelector('.contact-form form');
@@ -252,16 +268,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1500);
         });
     }
+
+    // Effet tilt/parallax sur les images de la galerie et de l'équipe
+    function addTiltEffect(selector, maxTilt = 15, scale = 1.04) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+            el.style.transition = 'transform 0.25s cubic-bezier(.03,.98,.52,.99)';
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const percentX = (x - centerX) / centerX;
+                const percentY = (y - centerY) / centerY;
+                const tiltX = percentY * maxTilt;
+                const tiltY = -percentX * maxTilt;
+                el.style.transform = `perspective(600px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(${scale})`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        });
+    }
+    addTiltEffect('.gallery-item', 18, 1.06);
+    addTiltEffect('.member-image', 12, 1.04);
     
     // Effet de parallaxe pour la section hero
-    const hero = document.querySelector('.hero');
-    
-    window.addEventListener('scroll', function() {
-        if (hero) {
-            const scrollPosition = window.pageYOffset;
-            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-        }
-    });
+    // (Supprimé pour que l'image reste totalement fixe)
     
     // Fonction pour créer et animer les particules "feu"
     function createFireParticles() {
@@ -461,4 +495,38 @@ document.addEventListener('DOMContentLoaded', function() {
     primaryButtons.forEach(btn => {
         btn.classList.add('pulse');
     });
-}); 
+
+    // Effet ripple sur tous les boutons .btn
+    function createRipple(event) {
+        const button = event.currentTarget;
+        const circle = document.createElement('span');
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+        circle.classList.add('ripple');
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+        circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+        // Supprimer les anciens ripples
+        const oldRipple = button.querySelector('.ripple');
+        if (oldRipple) oldRipple.remove();
+        button.appendChild(circle);
+    }
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.style.position = 'relative';
+        btn.style.overflow = 'hidden';
+        btn.addEventListener('click', createRipple);
+    });
+
+    // Scroll To Top Button
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
