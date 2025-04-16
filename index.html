@@ -3,41 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RedOne - Serveur FiveM</title>
+    <meta name="description" content="RedOne - Le nouveau serveur FiveM roleplay avec une expérience immersive et des fonctionnalités uniques">
+    <meta name="keywords" content="RedOne, FiveM, GTA, roleplay, RP, serveur, gaming">
+    <meta name="author" content="RedOne Team">
+    <meta property="og:title" content="RedOne - Serveur FiveM">
+    <meta property="og:description" content="Rejoignez l'aventure sur le nouveau serveur FiveM roleplay avec une expérience immersive et des fonctionnalités uniques">
+    <meta property="og:image" content="assets/images/logo.png">
+    <meta property="og:url" content="https://redone-fivem.com">
+    <meta name="theme-color" content="#e50914">
+    
+    <title>RedOne - Serveur FiveM Roleplay</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Préchargement des images importantes -->
+    <link rel="preload" href="assets/images/logo.png" as="image">
+    <link rel="preload" href="assets/images/banniere.png" as="image">
 </head>
 <body>
+    <!-- Loader amélioré -->
     <div class="loader">
-        <div class="spinner"></div>
+        <div class="loader-content">
+            <img src="assets/images/logo.png" alt="RedOne Logo" class="loader-logo">
+            <div class="spinner-container">
+                <div class="spinner"></div>
+                <div class="spinner"></div>
+                <div class="spinner"></div>
+            </div>
+            <div class="loader-text">Chargement de l'expérience RedOne...</div>
+            <div class="loader-progress">
+                <div class="loader-progress-bar" id="loaderProgressBar"></div>
+            </div>
+        </div>
     </div>
+    
+    <!-- Script pour la barre de progression du loader -->
+    <script>
+        (function() {
+            var progressBar = document.getElementById('loaderProgressBar');
+            if (progressBar) {
+                var progress = 0;
+                var interval = setInterval(function() {
+                    progress += 1;
+                    progressBar.style.width = progress + '%';
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                    }
+                }, 50);
+            }
+        })();
+    </script>
 
+    <!-- Header moderne avec navigation améliorée -->
     <header>
         <div class="container">
             <div class="logo">
                 <img src="assets/images/logo.png" alt="RedOne Logo">
             </div>
             <nav>
-                <ul>
-                    <li><a href="#accueil" class="active">Accueil</a></li>
-                    <li><a href="#a-propos">À propos</a></li>
-                    <li><a href="#fonctionnalites">Fonctionnalités</a></li>
-                    <li><a href="#equipe">Équipe</a></li>
-                    <li><a href="#galerie">Galerie</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <ul class="nav-links">
+                    <li><a href="#accueil" class="active"><i class="fas fa-home"></i><span>Accueil</span></a></li>
+                    <li><a href="#a-propos"><i class="fas fa-info-circle"></i><span>À propos</span></a></li>
+                    <li><a href="#fonctionnalites"><i class="fas fa-star"></i><span>Fonctionnalités</span></a></li>
+                    <li><a href="#equipe"><i class="fas fa-users"></i><span>Équipe</span></a></li>
+                    <li><a href="#galerie"><i class="fas fa-images"></i><span>Galerie</span></a></li>
+                    <li><a href="#actualites"><i class="fas fa-newspaper"></i><span>Actualités</span></a></li>
+                    <li><a href="#faq"><i class="fas fa-question-circle"></i><span>FAQ</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
                 </ul>
             </nav>
-            <div class="burger-menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+            <div class="header-actions">
+                <a href="https://cfx.re/join/g9l53o" class="btn primary join-btn" target="_blank">
+                    <i class="fas fa-gamepad"></i> Rejoindre
+                </a>
+                <div class="burger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
+        </div>
+        
+        <!-- Indicateur de progression de défilement -->
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scrollProgress"></div>
         </div>
     </header>
 
     <main>
         <section id="accueil" class="hero">
+            <!-- Particules d'arrière-plan -->
+            <div class="hero-particles" id="heroParticles"></div>
+            
+            <!-- Forme d'arrière-plan -->
             <div class="hero-bg-svg">
                 <svg width="100%" height="100%" viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                     <defs>
@@ -49,18 +119,70 @@
                     <path d="M0,400 Q400,500 800,400 T1440,400 L1440,600 L0,600Z" fill="url(#heroGradient)"/>
                 </svg>
             </div>
+            
+            <!-- Contenu principal -->
             <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="assets/images/logo.png" alt="RedOne Logo" class="pulse-animation">
+                </div>
+                
                 <h1 class="hero-title-animated">
                     <span class="hero-title-line">Bienvenue sur</span>
                     <span class="hero-title-main">RedOne</span>
                 </h1>
-                <p class="fade-in hero-subtitle">Le serveur FiveM roleplay qui <span class="highlight-underline">redéfinit</span> l'expérience GTA V</p>
-                <div class="hero-buttons fade-in">
-                    <a href="https://cfx.re/join/g9l53o" class="btn primary" target="_blank">Rejoindre le serveur</a>
-                    <a href="https://discord.gg/gbDNRBE6Xr" class="btn secondary" target="_blank">Rejoindre Discord</a>
+                
+                <div class="hero-tagline">
+                    <span class="tagline-text">SERVEUR FIVEM ROLEPLAY</span>
+                    <span class="tagline-separator"></span>
+                    <span class="tagline-text">EXPÉRIENCE IMMERSIVE</span>
+                    <span class="tagline-separator"></span>
+                    <span class="tagline-text">COMMUNAUTÉ ACTIVE</span>
                 </div>
+                
+                <p class="fade-in hero-subtitle">Le serveur FiveM roleplay qui <span class="highlight-underline">redéfinit</span> l'expérience GTA V</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">50+</span>
+                        <span class="hero-stat-label">Joueurs actifs</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">10+</span>
+                        <span class="hero-stat-label">Métiers</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">24/7</span>
+                        <span class="hero-stat-label">Serveur en ligne</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons fade-in">
+                    <a href="https://cfx.re/join/g9l53o" class="btn primary" target="_blank">
+                        <span class="btn-icon"><i class="fas fa-gamepad"></i></span>
+                        <span class="btn-text">Rejoindre le serveur</span>
+                    </a>
+                    <a href="https://discord.gg/gbDNRBE6Xr" class="btn secondary" target="_blank">
+                        <span class="btn-icon"><i class="fab fa-discord"></i></span>
+                        <span class="btn-text">Discord</span>
+                    </a>
+                </div>
+                
             </div>
+            
             <div class="hero-overlay"></div>
+            
+            <!-- Indicateur de défilement séparé du contenu principal -->
+            <a href="#a-propos" class="hero-scroll-indicator">
+                <span>Découvrir</span>
+                <i class="fas fa-angle-double-down"></i>
+            </a>
+            
+            <!-- Éléments de décoration -->
+            <div class="hero-decoration">
+                <div class="hero-circle"></div>
+                <div class="hero-circle"></div>
+                <div class="hero-circle"></div>
+            </div>
         </section>
 
         <section id="a-propos" class="about">
@@ -272,41 +394,345 @@
             </div>
             <div class="container">
                 <h2 class="section-title">Notre <span>Galerie</span></h2>
+                
+                <!-- Filtres de la galerie -->
+                <div class="gallery-filter">
+                    <button class="gallery-filter-btn active" data-filter="all">Tout</button>
+                    <button class="gallery-filter-btn" data-filter="vehicules">Véhicules</button>
+                    <button class="gallery-filter-btn" data-filter="metiers">Métiers</button>
+                    <button class="gallery-filter-btn" data-filter="paysages">Paysages</button>
+                </div>
+                
+                <!-- Grille de la galerie -->
                 <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="assets/images/moto.png" alt="RedOne Gameplay">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                    <div class="gallery-item" data-category="vehicules">
+                        <div class="gallery-item-inner">
+                            <img src="assets/images/moto.png" alt="Moto de course - RedOne">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Moto de course</h3>
+                                    <p>Véhicule personnalisé disponible sur RedOne</p>
+                                </div>
+                                <div class="gallery-actions">
+                                    <button class="gallery-zoom"><i class="fas fa-search-plus"></i></button>
+                                    <button class="gallery-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span>24</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item-caption">
+                            <h4>Moto de course</h4>
+                            <span class="gallery-category">Véhicules</span>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/voiture.png" alt="RedOne Gameplay">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                    
+                    <div class="gallery-item" data-category="vehicules">
+                        <div class="gallery-item-inner">
+                            <img src="assets/images/voiture.png" alt="Voiture de sport - RedOne">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Voiture de sport</h3>
+                                    <p>Véhicule haut de gamme disponible sur RedOne</p>
+                                </div>
+                                <div class="gallery-actions">
+                                    <button class="gallery-zoom"><i class="fas fa-search-plus"></i></button>
+                                    <button class="gallery-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span>36</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item-caption">
+                            <h4>Voiture de sport</h4>
+                            <span class="gallery-category">Véhicules</span>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/marshall.png" alt="RedOne Gameplay">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                    
+                    <div class="gallery-item" data-category="vehicules">
+                        <div class="gallery-item-inner">
+                            <img src="assets/images/marshall.png" alt="Tout-terrain - RedOne">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Tout-terrain</h3>
+                                    <p>Explorez les zones sauvages avec ce véhicule</p>
+                                </div>
+                                <div class="gallery-actions">
+                                    <button class="gallery-zoom"><i class="fas fa-search-plus"></i></button>
+                                    <button class="gallery-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span>29</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item-caption">
+                            <h4>Tout-terrain</h4>
+                            <span class="gallery-category">Véhicules</span>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/rs6.png" alt="RedOne Gameplay">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                    
+                    <div class="gallery-item" data-category="vehicules">
+                        <div class="gallery-item-inner">
+                            <img src="assets/images/rs6.png" alt="Berline sportive - RedOne">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Berline sportive</h3>
+                                    <p>Élégance et puissance combinées</p>
+                                </div>
+                                <div class="gallery-actions">
+                                    <button class="gallery-zoom"><i class="fas fa-search-plus"></i></button>
+                                    <button class="gallery-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span>31</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item-caption">
+                            <h4>Berline sportive</h4>
+                            <span class="gallery-category">Véhicules</span>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/police.png" alt="RedOne Gameplay">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                    
+                    <div class="gallery-item" data-category="metiers">
+                        <div class="gallery-item-inner">
+                            <img src="assets/images/police.png" alt="Forces de l'ordre - RedOne">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Forces de l'ordre</h3>
+                                    <p>Rejoignez la police de RedOne City</p>
+                                </div>
+                                <div class="gallery-actions">
+                                    <button class="gallery-zoom"><i class="fas fa-search-plus"></i></button>
+                                    <button class="gallery-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span>42</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item-caption">
+                            <h4>Forces de l'ordre</h4>
+                            <span class="gallery-category">Métiers</span>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/gouv.png" alt="RedOne Gameplay">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-search-plus"></i>
+                    
+                    <div class="gallery-item" data-category="metiers">
+                        <div class="gallery-item-inner">
+                            <img src="assets/images/gouv.png" alt="Gouvernement - RedOne">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3>Gouvernement</h3>
+                                    <p>L'élite politique de RedOne City</p>
+                                </div>
+                                <div class="gallery-actions">
+                                    <button class="gallery-zoom"><i class="fas fa-search-plus"></i></button>
+                                    <button class="gallery-like" onclick="toggleLike(this)"><i class="far fa-heart"></i> <span>18</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-item-caption">
+                            <h4>Gouvernement</h4>
+                            <span class="gallery-category">Métiers</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bouton pour voir plus -->
+                <div class="gallery-more">
+                    <a href="#" class="btn primary">Voir plus de photos <i class="fas fa-images"></i></a>
+                </div>
+            </div>
+            
+            <!-- Lightbox avancée -->
+            <div class="advanced-lightbox" id="advancedLightbox">
+                <div class="lightbox-container">
+                    <div class="lightbox-header">
+                        <h3 class="lightbox-title">Titre de l'image</h3>
+                        <button class="lightbox-close"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="lightbox-content">
+                        <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="lightbox-image-container">
+                            <img src="" alt="RedOne Gallery" class="lightbox-image">
+                        </div>
+                        <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="lightbox-footer">
+                        <div class="lightbox-description">Description de l'image</div>
+                        <div class="lightbox-counter">Image <span class="current">1</span> sur <span class="total">6</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="actualites" class="actualites">
+            <div class="actualites-bg-svg">
+                <svg width="100%" height="100%" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <radialGradient id="actualitesGradient" cx="50%" cy="50%" r="80%" fx="50%" fy="50%">
+                            <stop offset="0%" stop-color="#e50914" stop-opacity="0.10"/>
+                            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="720" cy="200" rx="320" ry="120" fill="url(#actualitesGradient)"/>
+                    <ellipse cx="300" cy="320" rx="180" ry="80" fill="url(#actualitesGradient)"/>
+                </svg>
+            </div>
+            <div class="container">
+                <h2 class="section-title">Dernières <span>Actualités</span></h2>
+                
+                <div class="actualites-filter">
+                    <button class="filter-btn active" data-filter="all">Tout</button>
+                    <button class="filter-btn" data-filter="mises-a-jour">Mises à jour</button>
+                    <button class="filter-btn" data-filter="evenements">Événements</button>
+                    <button class="filter-btn" data-filter="annonces">Annonces</button>
+                </div>
+                
+                <div class="actualites-grid">
+                    <!-- Article 1 -->
+                    <article class="actualite-card" data-category="mises-a-jour">
+                        <div class="actualite-image">
+                            <img src="assets/images/update.jpg" alt="Mise à jour majeure">
+                            <div class="actualite-date">
+                                <span class="day">15</span>
+                                <span class="month">JUIN</span>
+                            </div>
+                            <div class="actualite-category">Mise à jour</div>
+                        </div>
+                        <div class="actualite-content">
+                            <h3>Mise à jour majeure 2.0</h3>
+                            <p>Découvrez notre nouvelle mise à jour avec de nombreuses améliorations et fonctionnalités inédites pour une expérience roleplay encore plus immersive.</p>
+                            <div class="actualite-footer">
+                                <a href="#" class="actualite-link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                                <div class="actualite-stats">
+                                    <span><i class="fas fa-eye"></i> 245</span>
+                                    <span><i class="fas fa-comment"></i> 18</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 2 -->
+                    <article class="actualite-card" data-category="evenements">
+                        <div class="actualite-image">
+                            <img src="assets/images/event.jpg" alt="Événement spécial">
+                            <div class="actualite-date">
+                                <span class="day">10</span>
+                                <span class="month">JUIN</span>
+                            </div>
+                            <div class="actualite-category">Événement</div>
+                        </div>
+                        <div class="actualite-content">
+                            <h3>Course urbaine nocturne</h3>
+                            <p>Participez à notre événement spécial de courses urbaines nocturnes avec des récompenses exclusives et des véhicules customisés.</p>
+                            <div class="actualite-footer">
+                                <a href="#" class="actualite-link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                                <div class="actualite-stats">
+                                    <span><i class="fas fa-eye"></i> 189</span>
+                                    <span><i class="fas fa-comment"></i> 24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 3 -->
+                    <article class="actualite-card" data-category="annonces">
+                        <div class="actualite-image">
+                            <img src="assets/images/announce.jpg" alt="Annonce importante">
+                            <div class="actualite-date">
+                                <span class="day">05</span>
+                                <span class="month">JUIN</span>
+                            </div>
+                            <div class="actualite-category">Annonce</div>
+                        </div>
+                        <div class="actualite-content">
+                            <h3>Recrutement staff ouvert</h3>
+                            <p>Nous recherchons de nouveaux membres pour rejoindre notre équipe d'administration. Postulez dès maintenant pour nous aider à améliorer l'expérience RedOne.</p>
+                            <div class="actualite-footer">
+                                <a href="#" class="actualite-link">Lire plus <i class="fas fa-arrow-right"></i></a>
+                                <div class="actualite-stats">
+                                    <span><i class="fas fa-eye"></i> 312</span>
+                                    <span><i class="fas fa-comment"></i> 42</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="actualites-more">
+                    <a href="#" class="btn primary">Voir toutes les actualités <i class="fas fa-newspaper"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="faq-bg-svg">
+                <svg width="100%" height="100%" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <radialGradient id="faqGradient" cx="50%" cy="50%" r="80%" fx="50%" fy="50%">
+                            <stop offset="0%" stop-color="#e50914" stop-opacity="0.10"/>
+                            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <ellipse cx="720" cy="200" rx="320" ry="120" fill="url(#faqGradient)"/>
+                    <ellipse cx="300" cy="320" rx="180" ry="80" fill="url(#faqGradient)"/>
+                </svg>
+            </div>
+            <div class="container">
+                <h2 class="section-title">Questions <span>Fréquentes</span></h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Comment rejoindre le serveur RedOne ?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pour rejoindre notre serveur, vous devez d'abord installer FiveM sur votre PC. Ensuite, cliquez sur le bouton "Rejoindre le serveur" en haut de notre site ou utilisez le code d'invitation : <strong>cfx.re/join/g9l53o</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Quelles sont les configurations minimales requises ?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pour une expérience optimale sur RedOne, nous recommandons :</p>
+                            <ul>
+                                <li>Processeur : Intel Core i5 ou équivalent</li>
+                                <li>RAM : 8 Go minimum (16 Go recommandé)</li>
+                                <li>Carte graphique : GTX 1050 ou équivalent</li>
+                                <li>Espace disque : 15 Go disponibles</li>
+                                <li>Connexion Internet stable</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Comment créer son personnage ?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Après avoir rejoint le serveur, vous serez automatiquement dirigé vers notre système de création de personnage. Vous pourrez personnaliser l'apparence, les vêtements et les caractéristiques de votre personnage. N'oubliez pas de créer une histoire cohérente pour votre roleplay !</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Quelles sont les règles principales du serveur ?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nos règles principales incluent :</p>
+                            <ul>
+                                <li>Respecter le roleplay en toutes circonstances</li>
+                                <li>Pas de métagaming ou powergaming</li>
+                                <li>Respecter les autres joueurs et l'équipe d'administration</li>
+                                <li>Pas de triche ou d'exploitation de bugs</li>
+                                <li>Utiliser un micro de qualité correcte</li>
+                            </ul>
+                            <p>Pour consulter l'ensemble des règles, rejoignez notre Discord.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Comment signaler un problème ou un joueur ?</h3>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Si vous rencontrez un problème technique ou souhaitez signaler un comportement inapproprié, vous pouvez :</p>
+                            <ul>
+                                <li>Contacter un administrateur en jeu via la commande /report</li>
+                                <li>Ouvrir un ticket sur notre Discord</li>
+                                <li>Utiliser le formulaire de contact sur notre site</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -328,56 +754,42 @@
             </div>
             <div class="container">
                 <h2 class="section-title">Nous <span>Contacter</span></h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
                             <i class="fas fa-envelope"></i>
-                            <div>
-                                <h3>Email</h3>
-                                <p>contact@redone-fivem.com</p>
-                            </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fab fa-discord"></i>
-                            <div>
-                                <h3>Discord</h3>
-                                <p>discord.gg/gbDNRBE6Xr</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-server"></i>
-                            <div>
-                                <h3>Lien Serveur</h3>
-                                <p>cfx.re/join/g9l53o</p>
-                            </div>
-                        </div>
-                        <div class="social-media">
-                            <a href="https://discord.gg/gbDNRBE6Xr" class="social-icon" target="_blank"><i class="fab fa-discord"></i></a>
-                            <a href="https://www.twitch.tv/redonefa" class="social-icon" target="_blank"><i class="fab fa-twitch"></i></a>
-                        </div>
+                        <h3>Email</h3>
+                        <p>contact@redone-fivem.com</p>
+                        <a href="mailto:contact@redone-fivem.com" class="contact-card-link">Nous écrire</a>
                     </div>
-                    <div class="contact-form">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" id="name" placeholder="Votre nom" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Votre email" required>
-                            </div>
-                            <div class="form-group">
-                                <select id="subject">
-                                    <option value="">Sélectionner un sujet</option>
-                                    <option value="support">Support technique</option>
-                                    <option value="partnership">Partenariat</option>
-                                    <option value="suggestion">Suggestion</option>
-                                    <option value="other">Autre</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" placeholder="Votre message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn primary">Envoyer</button>
-                        </form>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Discord</h3>
+                        <p>Rejoignez notre communauté</p>
+                        <a href="https://discord.gg/gbDNRBE6Xr" class="contact-card-link" target="_blank">discord.gg/gbDNRBE6Xr</a>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Serveur FiveM</h3>
+                        <p>Rejoignez l'aventure</p>
+                        <a href="https://cfx.re/join/g9l53o" class="contact-card-link" target="_blank">cfx.re/join/g9l53o</a>
+                    </div>
+                </div>
+                
+                <div class="contact-social">
+                    <h3>Suivez-nous</h3>
+                    <div class="social-media">
+                        <a href="https://discord.gg/gbDNRBE6Xr" class="social-icon" target="_blank"><i class="fab fa-discord"></i></a>
+                        <a href="https://www.twitch.tv/redonefa" class="social-icon" target="_blank"><i class="fab fa-twitch"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -412,6 +824,7 @@
                             <li><a href="#fonctionnalites">Fonctionnalités</a></li>
                             <li><a href="#equipe">Équipe</a></li>
                             <li><a href="#galerie">Galerie</a></li>
+                            <li><a href="#faq">FAQ</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
@@ -435,5 +848,179 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     <script src="assets/js/main.js"></script>
+    
+    <!-- Script de secours pour le loader et l'initialisation des fonctionnalités -->
+    <script>
+        // Fonction pour les boutons "j'aime"
+        function toggleLike(button) {
+            // Empêcher la propagation de l'événement
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // Basculer la classe active
+            button.classList.toggle('active');
+            
+            // Mettre à jour le compteur
+            var countSpan = button.querySelector('span');
+            if (countSpan) {
+                var count = parseInt(countSpan.textContent || "0");
+                
+                if (button.classList.contains('active')) {
+                    // Incrémenter si actif
+                    count++;
+                    // Changer l'icône
+                    var icon = button.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    }
+                } else {
+                    // Décrémenter si inactif
+                    count = Math.max(0, count - 1); // Éviter les nombres négatifs
+                    // Changer l'icône
+                    var icon = button.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                    }
+                }
+                
+                // Mettre à jour le texte
+                countSpan.textContent = count;
+                
+                // Animation de pulsation
+                button.style.transform = 'scale(1.2)';
+                setTimeout(function() {
+                    button.style.transform = '';
+                }, 300);
+            }
+        }
+        
+        // Fonction pour les questions fréquentes
+        function toggleFaq(question) {
+            // Trouver l'élément parent (faq-item)
+            var faqItem = question.closest('.faq-item');
+            if (!faqItem) return;
+            
+            // Fermer tous les autres items
+            var allFaqItems = document.querySelectorAll('.faq-item');
+            allFaqItems.forEach(function(otherItem) {
+                if (otherItem !== faqItem && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    var otherAnswer = otherItem.querySelector('.faq-answer');
+                    if (otherAnswer) {
+                        otherAnswer.style.maxHeight = '0';
+                    }
+                    
+                    // Changer l'icône
+                    var otherToggle = otherItem.querySelector('.faq-toggle i');
+                    if (otherToggle) {
+                        otherToggle.classList.remove('fa-minus');
+                        otherToggle.classList.add('fa-plus');
+                    }
+                }
+            });
+            
+            // Toggle l'item actuel
+            var isActive = faqItem.classList.toggle('active');
+            
+            // Animer l'ouverture/fermeture
+            var answer = faqItem.querySelector('.faq-answer');
+            if (answer) {
+                if (isActive) {
+                    // Ouvrir
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    // Fermer
+                    answer.style.maxHeight = '0';
+                }
+            }
+            
+            // Changer l'icône
+            var toggleIcon = question.querySelector('.faq-toggle i');
+            if (toggleIcon) {
+                if (isActive) {
+                    toggleIcon.classList.remove('fa-plus');
+                    toggleIcon.classList.add('fa-minus');
+                } else {
+                    toggleIcon.classList.remove('fa-minus');
+                    toggleIcon.classList.add('fa-plus');
+                }
+            }
+        }
+        
+        // Assurer que le loader disparaît après un délai maximum
+        window.addEventListener('DOMContentLoaded', function() {
+            // Forcer la progression de la barre de chargement
+            var loaderProgressBar = document.getElementById('loaderProgressBar');
+            if (loaderProgressBar) {
+                // Animation fluide de la barre de progression
+                var progress = 0;
+                var interval = setInterval(function() {
+                    progress += 2;
+                    loaderProgressBar.style.width = progress + '%';
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        
+                        // Masquer le loader après la fin de la progression
+                        setTimeout(function() {
+                            var loader = document.querySelector('.loader');
+                            if (loader) {
+                                loader.classList.add('hidden');
+                                setTimeout(function() {
+                                    loader.style.display = 'none';
+                                }, 1000);
+                            }
+                        }, 500);
+                    }
+                }, 50);
+            }
+            
+            // Secours pour masquer le loader après un délai maximum
+            setTimeout(function() {
+                var loader = document.querySelector('.loader');
+                if (loader && !loader.classList.contains('hidden')) {
+                    console.log("Secours: Forçage de la fermeture du loader");
+                    loader.classList.add('hidden');
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 1000);
+                }
+            }, 8000); // 8 secondes maximum
+            
+            // Activer le bouton "Tout" par défaut pour la galerie
+            setTimeout(function() {
+                var allFilterBtn = document.querySelector('.gallery-filter-btn[data-filter="all"]');
+                if (allFilterBtn) {
+                    allFilterBtn.click();
+                }
+            }, 2000);
+        });
+        
+        // S'assurer que tout est correctement initialisé après le chargement complet de la page
+        window.addEventListener('load', function() {
+            // Activer le bouton "Tout" par défaut pour la galerie
+            setTimeout(function() {
+                var allFilterBtn = document.querySelector('.gallery-filter-btn[data-filter="all"]');
+                if (allFilterBtn) {
+                    allFilterBtn.click();
+                }
+            }, 500);
+            
+            // Ouvrir la première question FAQ pour montrer que ça fonctionne
+            setTimeout(function() {
+                var firstFaqQuestion = document.querySelector('.faq-question');
+                if (firstFaqQuestion) {
+                    firstFaqQuestion.click();
+                    
+                    // Refermer après 2 secondes
+                    setTimeout(function() {
+                        firstFaqQuestion.click();
+                    }, 2000);
+                }
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
